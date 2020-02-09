@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Vols</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="col-sm-8 well">
+        <h3>Liste des vols disponible: </h3>
+        <div class="list-group">
+            <ul>
+                <li th:each="vol : ${vols}">
+                    Numéro de vol: <p th:text="${vol.name}"></p> -
+                    Date de départ: <p th:text="${#temporals.format(vol.date, 'dd-MM-yyyy HH:mm')}"></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<a href="http://localhost:8080/auth/realms/spring-boot/protocol/openid-connect/logout">
+    Se déconnecter de keycloak
+</a>
+
+<style>
+    ul {
+        list-style: none;
+    }
+
+    p {
+        display: inline-block;
+    }
+</style>
+</body>
+</html>
